@@ -1,0 +1,113 @@
+﻿.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: 7rem var(--gutter) clamp(1.5rem, 3vw, 2.5rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__stage {
+  position: absolute;
+  z-index: -1;
+  right: var(--gutter);
+  top: clamp(5rem, 12vh, 9rem);
+  width: min(28vw, 22rem);
+  aspect-ratio: 3 / 4;
+}
+.hero__scribble {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  stroke: var(--pinhao);
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background: var(--casca);
+}
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(4.4rem, min(23vw, 41svh), 24rem);
+  line-height: 0.82;
+  letter-spacing: -0.015em;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+}
+.hero__line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.04em;
+}
+.hero__line-in {
+  display: block;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.hero__meta {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(1.5rem, 3vw, 2.5rem);
+  width: min(36vw, 28rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.35rem;
+}
+.hero__role {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 85;
+  font-size: var(--step-2);
+  line-height: 1.05;
+  color: var(--pinhao);
+}
+.hero__tagline {
+  font-size: var(--step-1);
+  line-height: 1.35;
+  max-width: 30ch;
+}
+.hero__place {
+  font-size: var(--step--1);
+}
+
+@media (max-width: 899px) {
+  .hero {
+    padding-top: 6rem;
+  }
+  .hero__stage {
+    width: min(56vw, 20rem);
+    top: 5.2rem;
+  }
+  .hero__name {
+    font-size: clamp(3.6rem, 21vw, 9rem);
+  }
+  .hero__meta {
+    position: static;
+    width: auto;
+    max-width: 34rem;
+  }
+}

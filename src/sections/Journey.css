@@ -1,0 +1,153 @@
+﻿.jny {
+  padding-block: clamp(6rem, 14vw, 13rem);
+}
+.jny__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+.jny__title {
+  position: sticky;
+  top: 6rem;
+}
+
+.jny__list {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 clamp(1.4rem, 3vw, 2.4rem);
+  list-style: none;
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+.jny__line {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  bottom: 0;
+  width: 2px;
+  background: var(--pinhao);
+  transform-origin: top center;
+}
+.jny__item {
+  position: relative;
+  display: grid;
+  gap: 0.6rem;
+}
+.jny__item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * clamp(1.4rem, 3vw, 2.4rem) - 5px);
+  top: 0.45rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--mata);
+  border: 2px solid var(--pinhao);
+}
+.jny__when {
+  font-size: var(--step--1);
+  color: var(--pinhao);
+  font-weight: 600;
+}
+.jny__what {
+  display: grid;
+  gap: 0.7rem;
+}
+.jny__role {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 78;
+  font-size: var(--step-2);
+  line-height: 1.05;
+}
+.jny__org {
+  color: var(--nevoa-dim);
+}
+.jny__orgline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.jny__logo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.6rem;
+  background: var(--nevoa);
+  color: var(--mata);
+  overflow: hidden;
+}
+.jny__logo img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+.jny__logo b {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+.jny__bullets {
+  display: grid;
+  gap: 0.45rem;
+  font-size: var(--step--1);
+  color: var(--nevoa-dim);
+  max-width: 62ch;
+}
+.jny__bullets li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+.jny__bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--pinhao);
+}
+
+.jny__edu {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 1.6rem;
+}
+.jny__edu-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 78;
+  font-size: var(--step-2);
+}
+.jny__edu ul {
+  display: grid;
+  gap: 1.8rem;
+}
+.jny__edu-item {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1rem;
+}
+.jny__detail {
+  font-size: var(--step--1);
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 899px) {
+  .jny__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .jny__title {
+    position: static;
+  }
+  .jny__edu-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.3rem;
+  }
+}

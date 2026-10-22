@@ -1,0 +1,92 @@
+﻿.ctc {
+  padding-top: clamp(6rem, 14vw, 13rem);
+  display: grid;
+  gap: clamp(4rem, 8vw, 8rem);
+}
+.ctc__lead {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 88;
+  font-size: var(--step-3);
+  line-height: 1.1;
+  max-width: 22ch;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+.ctc__mail {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-variation-settings: 'wdth' 56;
+  font-size: clamp(1.15rem, 4.6vw, 5.4rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--pinhao);
+  padding-bottom: 0.08em;
+}
+.ctc__mail-in {
+  display: block;
+  overflow-wrap: anywhere;
+  transition: color 0.25s var(--ease);
+}
+.ctc__mail:hover .ctc__mail-in,
+.ctc__mail:focus-visible .ctc__mail-in {
+  color: var(--nevoa);
+}
+
+.ctc__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+.ctc__btn {
+  display: inline-block;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s;
+}
+.ctc__btn:hover,
+.ctc__btn:focus-visible {
+  background: var(--nevoa);
+  color: var(--mata);
+  border-color: var(--nevoa);
+}
+.ctc__btn--solid {
+  background: var(--pinhao);
+  color: var(--mata);
+  border-color: var(--pinhao);
+}
+.ctc__btn--solid:hover,
+.ctc__btn--solid:focus-visible {
+  background: var(--nevoa);
+  border-color: var(--nevoa);
+}
+.ctc__details {
+  display: grid;
+  gap: 0.3rem;
+  margin-top: 2.2rem;
+  font-size: var(--step--1);
+}
+
+.ctc__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.6rem 2rem;
+  border-top: 1px solid var(--line);
+  font-size: var(--step--1);
+}
+
+@media (max-width: 899px) {
+  .ctc__foot {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  }
+}

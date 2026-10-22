@@ -1,0 +1,333 @@
+/* ---------- Fundo de circuito ---------- */
+.cb {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.cb svg {
+  position: absolute;
+  inset: -4% 0;
+  width: 100%;
+  height: 108%;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cb__base path {
+  stroke: rgba(233, 239, 228, 0.06);
+  stroke-width: 1.5;
+}
+.cb__lit path {
+  stroke: var(--pinhao);
+  stroke-width: 1.8;
+  opacity: 0.3;
+}
+.cb--static .cb__lit path {
+  opacity: 0.18;
+}
+.cb__pad circle {
+  stroke: var(--pinhao);
+  stroke-width: 1.8;
+  fill: var(--mata);
+}
+.cb__pad .cb__pad-dot {
+  fill: var(--pinhao);
+  stroke: none;
+}
+.cb--static .cb__pad {
+  opacity: 0.4;
+}
+
+/* ---------- Ícones flutuantes do hero ---------- */
+.fgs {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.fg {
+  position: absolute;
+  color: var(--nevoa);
+  opacity: 0.55;
+}
+.fg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  stroke-width: 2.4;
+}
+.fg--1 { left: 5%;  top: 16%; width: clamp(4rem, 9vw, 9rem); color: var(--pinhao); }
+.fg--2 { left: 38%; top: 13%; width: clamp(3rem, 6vw, 6rem); }
+.fg--3 { left: 52%; top: 40%; width: clamp(4rem, 8vw, 8rem); color: var(--ceu); }
+.fg--4 { left: 22%; top: 46%; width: clamp(3rem, 5vw, 5rem); }
+.fg--5 { right: 38%; top: 10%; width: clamp(3.5rem, 6vw, 6rem); color: var(--pinhao); }
+
+/* ---------- Faixas ---------- */
+.band {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-block: clamp(2rem, 5vw, 4rem);
+  background: var(--pinhao);
+  color: var(--mata);
+  transform-origin: 50% 50%;
+  margin-block: clamp(2rem, 6vw, 5rem);
+  width: 108%;
+  margin-left: -4%;
+}
+.band__row {
+  display: flex;
+  overflow: hidden;
+}
+.band__inner {
+  display: flex;
+  flex: none;
+  will-change: transform;
+}
+.band__copy {
+  display: flex;
+  flex: none;
+}
+.band__item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding-right: clamp(1rem, 3vw, 2.5rem);
+}
+.band__word {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 70;
+  font-size: clamp(3.2rem, 9vw, 9rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+.band__row--b .band__word {
+  color: var(--pinhao);
+  -webkit-text-stroke: 7px var(--mata);
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+}
+.band__icon {
+  flex: none;
+  width: clamp(2.6rem, 6vw, 6rem);
+  height: auto;
+  stroke-width: 3;
+}
+
+/* ---------- Pipeline fixo ---------- */
+.pipe {
+  position: relative;
+  z-index: 1;
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  padding: clamp(5rem, 9vw, 8rem) var(--gutter);
+  background: var(--mata);
+  border-block: 1px solid var(--line);
+}
+.pipe__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+}
+.pipe__rail {
+  position: absolute;
+  left: 12.5%;
+  width: 75%;
+  top: clamp(3rem, 6vw, 5.5rem);
+  height: 2px;
+}
+.pipe__base,
+.pipe__lit {
+  position: absolute;
+  inset: 0;
+}
+.pipe__base {
+  background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 14px);
+}
+.pipe__lit {
+  background: var(--pinhao);
+  transform-origin: 0 50%;
+}
+.pipe__packet {
+  position: absolute;
+  top: clamp(3rem, 6vw, 5.5rem);
+  left: 12.5%;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin: -0.45rem 0 0 -0.45rem;
+  border-radius: 50%;
+  background: var(--pinhao);
+  box-shadow: 0 0 0 6px rgba(240, 165, 58, 0.18), 0 0 30px 6px rgba(240, 165, 58, 0.5);
+  z-index: 2;
+}
+.pipe__stage {
+  display: grid;
+  justify-items: center;
+  gap: clamp(1rem, 2vw, 1.8rem);
+  text-align: center;
+  color: var(--nevoa);
+}
+.pipe__icon {
+  width: clamp(6rem, 12vw, 11rem);
+  height: auto;
+  padding: 0.6rem;
+  background: var(--mata);
+  position: relative;
+  z-index: 1;
+  stroke-width: 2.2;
+  color: var(--nevoa);
+}
+.pipe__stage-text h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 80;
+  font-size: var(--step-2);
+  line-height: 1;
+}
+.pipe__stage-text p {
+  margin-top: 0.4rem;
+  color: var(--nevoa-dim);
+  font-size: var(--step--1);
+}
+
+@media (max-width: 899px), (prefers-reduced-motion: reduce) {
+  .pipe {
+    min-height: 0;
+  }
+  .pipe__rail,
+  .pipe__packet {
+    display: none;
+  }
+  .pipe__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 1rem;
+  }
+  .pipe__icon {
+    width: clamp(5rem, 28vw, 8rem);
+    color: var(--pinhao);
+  }
+}
+
+/* ---------- Fio de dados do hero até o Sobre ---------- */
+.wire {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.wire svg {
+  display: block;
+}
+.wire path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+.wire__base {
+  stroke: rgba(233, 239, 228, 0.07);
+}
+.wire__lit {
+  stroke: var(--pinhao);
+}
+.wire__dot {
+  fill: var(--pinhao);
+  filter: drop-shadow(0 0 10px var(--pinhao));
+}
+
+/* ---------- Janela de código (Sobre) ---------- */
+.code {
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  overflow: hidden;
+  background: var(--casca);
+  box-shadow: 0 2rem 4rem -1.5rem rgba(0, 0, 0, 0.6);
+  max-width: 30rem;
+}
+.code__bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--casca-2);
+  font-size: var(--step--1);
+  color: var(--nevoa-dim);
+}
+.code__bar i {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--nevoa-dim);
+  opacity: 0.5;
+}
+.code__bar i:first-child {
+  background: var(--pinhao);
+  opacity: 1;
+}
+.code__bar span {
+  margin-left: 0.6rem;
+}
+.code__body {
+  margin: 0;
+  padding: 1rem 1.1rem 1.2rem;
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: clamp(0.72rem, 0.68rem + 0.15vw, 0.85rem);
+  line-height: 1.75;
+  color: var(--nevoa);
+  white-space: pre;
+  overflow: hidden;
+}
+.code__line b {
+  font-weight: 400;
+}
+.code .k { color: var(--ceu); }
+.code .s { color: var(--pinhao); }
+.code .n { color: #9fd18b; }
+.code__caret {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.2em;
+  vertical-align: text-bottom;
+  background: var(--pinhao);
+  animation: caret 1s steps(2) infinite;
+}
+@keyframes caret {
+  50% { opacity: 0; }
+}
+
+.pipe__mline {
+  display: none;
+}
+@media (max-width: 899px) {
+  .pipe__mline {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 3rem;
+    bottom: 3rem;
+    width: 2px;
+    margin-left: -1px;
+    background: var(--pinhao);
+    transform-origin: 50% 0;
+    opacity: 0.5;
+  }
+  .pipe__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+  }
+  .pipe__icon,
+  .pipe__stage-text {
+    background: var(--mata);
+    position: relative;
+    z-index: 1;
+  }
+}

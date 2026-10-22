@@ -1,0 +1,34 @@
+﻿.pre {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--mata);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.25rem, 3vw, 2.5rem) var(--gutter);
+  clip-path: inset(0 0 0 0);
+}
+.pre__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: var(--step--1);
+  color: var(--nevoa-dim);
+}
+.pre__mask {
+  display: block;
+  overflow: hidden;
+}
+.pre__out {
+  display: block;
+}
+.pre__count {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 60;
+  font-size: clamp(7rem, 28vw, 24rem);
+  line-height: 0.8;
+  color: var(--pinhao);
+  font-variant-numeric: tabular-nums;
+}

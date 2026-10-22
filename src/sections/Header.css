@@ -1,0 +1,116 @@
+﻿.hdr {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem var(--gutter);
+  mix-blend-mode: difference;
+  color: #fff;
+  pointer-events: none;
+}
+.hdr > * {
+  pointer-events: auto;
+}
+.hdr__brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 80;
+  font-size: var(--step-1);
+  letter-spacing: 0.01em;
+}
+.hdr__nav {
+  display: flex;
+  gap: clamp(0.9rem, 2.4vw, 2.2rem);
+}
+.hdr__link {
+  font-size: var(--step--1);
+  font-weight: 500;
+}
+.hdr__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.hdr__burger,
+.hdr__scrim {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .hdr {
+    mix-blend-mode: normal;
+    background: linear-gradient(var(--mata) 40%, transparent);
+    padding-bottom: 1.6rem;
+  }
+  .hdr__burger {
+    display: grid;
+    gap: 5px;
+    align-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-right: -0.5rem;
+    position: relative;
+    z-index: 3;
+  }
+  .hdr__burger span {
+    display: block;
+    height: 2px;
+    width: 1.6rem;
+    margin-inline: auto;
+    background: var(--nevoa);
+    transition: transform 0.35s var(--ease), opacity 0.2s;
+  }
+  .hdr__burger[aria-expanded='true'] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hdr__burger[aria-expanded='true'] span:nth-child(2) {
+    opacity: 0;
+  }
+  .hdr__burger[aria-expanded='true'] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+  .hdr__scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgba(5, 10, 8, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s;
+  }
+  .hdr__scrim.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .hdr__nav {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(80vw, 20rem);
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.4rem;
+    padding: 5rem 2rem 2rem;
+    background: var(--casca);
+    border-left: 1px solid var(--line);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.5s var(--ease), visibility 0s 0.5s;
+  }
+  .hdr__nav.is-open {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.5s var(--ease);
+  }
+  .hdr__link {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-variation-settings: 'wdth' 80;
+    font-size: var(--step-3);
+    line-height: 1;
+  }
+}
